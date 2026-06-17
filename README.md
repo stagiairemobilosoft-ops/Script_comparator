@@ -60,6 +60,6 @@ validation |        quality_check.py       |                            |- _issu
 --------------------------------------------------------------------------------------------------------
           |       main.py                  |                            |- main()                      | 
 
-
-      
+# CMD
+python3 main.py compare Nickel_Gmaps_20260211_.xlsx Nickel_Gmaps_20260522.xlsx
                            

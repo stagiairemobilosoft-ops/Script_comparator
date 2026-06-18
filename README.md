@@ -24,13 +24,13 @@ openpyxl>=3.1.0
 
 # CMD
 ```powershell
-python3 main.py compare FICHIER_MOIS_PRECEDENT.xlsx FICHIER_NOUVEAU.xlsx
+python main.py compare FICHIER_MOIS_PRECEDENT.xlsx FICHIER_NOUVEAU.xlsx
 ```
 
 Exemple :
 
 ```powershell
-python3 main.py validate Nickel_Gmaps_20260211_.xlsx  
+python main.py validate Nickel_Gmaps_20260211_.xlsx  
 ```
 
 
@@ -48,7 +48,7 @@ Important : compare toujours mois N-1 vs mois N. Ne pas comparer un fichier trè
 Verifie un fichier sans lancer de comparaison.
 
 ```powershell
-python3 main.py validate Nickel_Gmaps_20260211_.xlsx  
+python main.py validate Nickel_Gmaps_20260211_.xlsx  
 ```
 
 ## Fichiers produits

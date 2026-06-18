@@ -24,7 +24,7 @@ openpyxl>=3.1.0
 
 # CMD
 ```powershell
-python main.py compare FICHIER_MOIS_PRECEDENT.xlsx FICHIER_NOUVEAU.xlsx
+python3 main.py compare FICHIER_MOIS_PRECEDENT.xlsx FICHIER_NOUVEAU.xlsx
 ```
 
 Exemple :

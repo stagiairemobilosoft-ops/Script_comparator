@@ -92,7 +92,7 @@ Le fichier resultat suit le modele `CLIENT_EXPORT_DATA` :
 - Certains magasins n'ont pas d'horaires dans le fichier source : `REGULAR_HOURS` reste vide.
 - Certains champs ne sont pas fournis par Nickel.
                   
-# Refactorisation# ref-script
+# Refactorisation
 
 |       Fichier                |           Classes           |          Fonctions          |
 |------------------------------|-----------------------------|-----------------------------|

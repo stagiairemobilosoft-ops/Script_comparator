@@ -4,7 +4,7 @@ Script Python pour comparer les fichiers mensuels Nickel (~13 000 magasins) et p
 ## Installation
 
 ```powershell
-cd nickel
+cd Script_comparator
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
@@ -98,6 +98,7 @@ Le fichier resultat suit le modele `CLIENT_EXPORT_DATA` :
 |------------------------------|-----------------------------|-----------------------------|
 |       main.py                |                             |- main()                     | 
 
+
 ## constants/
 |       Fichier                |           Classes           |          Fonctions          |
 |------------------------------|-----------------------------|-----------------------------|
@@ -108,6 +109,8 @@ Le fichier resultat suit le modele `CLIENT_EXPORT_DATA` :
 |                              |DEFAULT_COMPARE_OUTPUT / DEFAULT_VALIDATE_OUTPUT /         |
 |                              |ACTION_NO_CHANGE / ACTION_UPDATE / ACTION_CREATE /         |
 |                              |ACTION_CLOSE / ACTION_COLUMN                               | 
+
+
 ## normalize/ 
 |       Fichier                |           Classes           |          Fonctions          |
 |------------------------------|-----------------------------|-----------------------------|

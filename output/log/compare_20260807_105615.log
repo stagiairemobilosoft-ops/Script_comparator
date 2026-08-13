@@ -1,0 +1,14 @@
+date=2026-08-07T10:56:40
+commande=compare
+mois_precedent=/Users/stagiaire_mobilosoft/Documents/GitHub/Script_comparator/Nickel_Gmaps_20260522.xlsx
+nouveau=/Users/stagiaire_mobilosoft/Documents/GitHub/Script_comparator/Nickel_Gmaps_20260731.xlsx
+resultat=/Users/stagiaire_mobilosoft/Documents/GitHub/Script_comparator/output/resultat/fichier_synchronisation.xlsx
+analyse=/Users/stagiaire_mobilosoft/Documents/GitHub/Script_comparator/output/log/analyse_20260807_105615.xlsx
+total_reference=21351
+total_entrant=21257
+no_change=17429
+update=2599
+create=1229
+close_permanently=1323
+lignes_filezilla=5151
+doublons=32

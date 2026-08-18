@@ -15,7 +15,7 @@ from constants.constant import (
 from export.cmd import cmd_validate, cmd_compare
 
 def main() -> int:
-    start_time = time.perf_counter()
+    #start_time = time.perf_counter()
     parser = argparse.ArgumentParser(
         description="Comparaison de fichiers magasins Nickel pour la synchronisation FTP."
     )
@@ -59,8 +59,8 @@ def main() -> int:
     args = parser.parse_args()
     result = args.func(args)
 
-    elapsed = time.perf_counter() - start_time
-    print(f"\nTemps d'exécution : {elapsed:.2f} secondes")
+    #elapsed = time.perf_counter() - start_time
+    #print(f"\nTemps d'exécution : {elapsed:.2f} secondes")
     return result
 
 

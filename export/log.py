@@ -36,6 +36,7 @@ def _build_analysis_summary(
     incoming: Path,
     resultat: Path,
     dup_count: int,
+    elapsed: float,
 ) -> pd.DataFrame:
     return pd.DataFrame(
         [
@@ -49,11 +50,16 @@ def _build_analysis_summary(
             {"indicateur": ACTION_UPDATE, "valeur": len(result.modified)},
             {"indicateur": ACTION_CREATE, "valeur": len(result.added)},
             {"indicateur": ACTION_CLOSE, "valeur": len(result.removed)},
-            {"indicateur": "lignes_filezilla", "valeur": len(result.modified) + len(result.added) + len(result.removed)},
+            {
+                "indicateur": "lignes_filezilla",
+                "valeur": len(result.modified)
+                + len(result.added)
+                + len(result.removed),
+            },
             {"indicateur": "doublons_entrant", "valeur": dup_count},
+            {"indicateur": "temps_execution", "valeur": f"{elapsed:.2f} secondes"},
         ]
     )
-
 
 def write_analysis_workbook(
     path: Path,
@@ -64,11 +70,19 @@ def write_analysis_workbook(
     dup_count: int,
     inc_duplicates: pd.DataFrame,
     quality: pd.DataFrame,
+    elapsed: float,
 ) -> None:
     write_workbook(
         path,
         {
-            "resume": _build_analysis_summary(result, previous, incoming, resultat, dup_count),
+            "resume": _build_analysis_summary(
+                result,
+                previous,
+                incoming,
+                resultat,
+                dup_count,
+                elapsed,
+            ),
             "no_change": with_action(result.unchanged, ACTION_NO_CHANGE),
             "update": with_action(result.modified, ACTION_UPDATE),
             "create": with_action(result.added, ACTION_CREATE),

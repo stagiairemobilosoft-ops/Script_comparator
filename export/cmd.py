@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import time
 from datetime import datetime
 
 from normalize.file_loader import *
@@ -23,6 +24,12 @@ def _ensure_output_dirs() -> None:
     OUTPUT_LOG.mkdir(parents=True, exist_ok=True)
 
 def cmd_compare(args: argparse.Namespace) -> int:
+    start_time = time.perf_counter()
+
+    show_progress = not args.quiet
+    previous_path = Path(args.previous)
+    incoming_path = Path(args.incoming)
+    
     show_progress = not args.quiet
     previous_path = Path(args.previous)
     incoming_path = Path(args.incoming)
@@ -58,13 +65,15 @@ def cmd_compare(args: argparse.Namespace) -> int:
     dup_count = inc_duplicates[STORE_ID_COLUMN].nunique() if not inc_duplicates.empty else 0
 
     run_stamp = timestamp()
+    elapsed = time.perf_counter() - start_time
     analysis_path = timestamped_analysis_path(run_stamp)
     write_analysis_workbook(
-        analysis_path, result, previous_path, incoming_path, output_path, dup_count, inc_duplicates, quality
+        analysis_path, result, previous_path, incoming_path, output_path, dup_count, inc_duplicates, quality, elapsed
     )
     print_step_done("Rapport d'analyse enregistre", enabled=show_progress)
     if show_progress:
         print(file=sys.stderr)
+
 
     log_lines = [
         f"date={datetime.now().isoformat(timespec='seconds')}",
@@ -81,6 +90,7 @@ def cmd_compare(args: argparse.Namespace) -> int:
         f"{ACTION_CLOSE}={len(result.removed)}",
         f"lignes_filezilla={len(sync_file)}",
         f"doublons={dup_count}",
+        f"temps_execution={elapsed:.2f} secondes",
     ]
     log_path = timestamped_log_path("compare", run_stamp)
     write_log(log_path, log_lines)
